@@ -1,0 +1,12 @@
+with-expecter: true
+dir: "mocks"
+mockname: "Mock{{.InterfaceName}}"
+filename: "{{.InterfaceName}}.go"
+outpkg: mocks
+packages:
+  github.com/grachmannico95/flip-test-be/internal/domain:
+    interfaces:
+      Repository:
+  github.com/grachmannico95/flip-test-be/internal/service:
+    interfaces:
+      CSVProcessorInterface:
