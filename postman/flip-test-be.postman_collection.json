@@ -1,0 +1,430 @@
+{
+	"info": {
+		"_postman_id": "6eb7863a-c7fa-4bcb-a8cf-8ffd77ceec50",
+		"name": "flip-test-be",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2271756"
+	},
+	"item": [
+		{
+			"name": "upload statements",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Trace-ID",
+						"value": "test-trace-123",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/gustirachmannico/Project/go/flip-test-be/test/file/sample.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/statements",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"statements"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "ok",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Trace-ID",
+								"value": "test-trace-123",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/Users/gustirachmannico/Project/go/flip-test-be/test/file/sample.csv"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/statements",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"statements"
+							]
+						}
+					},
+					"status": "Accepted",
+					"code": 202,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Trace-Id",
+							"value": "ddf71ae2-f096-4fe4-a8af-acf03f0d208c"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 08 Jan 2026 04:30:24 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "75"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"processing\",\n    \"upload_id\": \"e7ecc88e-e280-421b-89a7-aa693294d7e5\"\n}"
+				}
+			]
+		},
+		{
+			"name": "get balance",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/balance?upload_id=e7ecc88e-e280-421b-89a7-aa693294d7e5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"balance"
+					],
+					"query": [
+						{
+							"key": "upload_id",
+							"value": "e7ecc88e-e280-421b-89a7-aa693294d7e5"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "ok",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/balance?upload_id=e7ecc88e-e280-421b-89a7-aa693294d7e5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"balance"
+							],
+							"query": [
+								{
+									"key": "upload_id",
+									"value": "e7ecc88e-e280-421b-89a7-aa693294d7e5"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Trace-Id",
+							"value": "4913854c-49e5-41da-b8f8-8c37b2ff032c"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 08 Jan 2026 04:30:31 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "71"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"balance\": 2150000,\n    \"upload_id\": \"e7ecc88e-e280-421b-89a7-aa693294d7e5\"\n}"
+				}
+			]
+		},
+		{
+			"name": "get issues",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/transactions/issues?upload_id=e7ecc88e-e280-421b-89a7-aa693294d7e5&page=1&per_page=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transactions",
+						"issues"
+					],
+					"query": [
+						{
+							"key": "upload_id",
+							"value": "e7ecc88e-e280-421b-89a7-aa693294d7e5"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "per_page",
+							"value": "10"
+						},
+						{
+							"key": "status",
+							"value": "PENDING",
+							"description": "FAILED or PENDING",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "ok",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/transactions/issues?upload_id=e7ecc88e-e280-421b-89a7-aa693294d7e5&page=1&per_page=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"transactions",
+								"issues"
+							],
+							"query": [
+								{
+									"key": "upload_id",
+									"value": "e7ecc88e-e280-421b-89a7-aa693294d7e5"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "per_page",
+									"value": "10"
+								},
+								{
+									"key": "status",
+									"value": "PENDING",
+									"description": "FAILED or PENDING",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Trace-Id",
+							"value": "d011d53f-063b-478d-942d-ece6e92885ba"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 08 Jan 2026 04:31:08 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "707"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"items\": [\n        {\n            \"timestamp\": 1674507885,\n            \"counterparty\": \"BOB SMITH\",\n            \"type\": \"DEBIT\",\n            \"amount\": 100000,\n            \"status\": \"FAILED\",\n            \"description\": \"invalid transaction\",\n            \"line_number\": 3\n        },\n        {\n            \"timestamp\": 1674507886,\n            \"counterparty\": \"ALICE WONDER\",\n            \"type\": \"CREDIT\",\n            \"amount\": 300000,\n            \"status\": \"PENDING\",\n            \"description\": \"pending payment\",\n            \"line_number\": 4\n        },\n        {\n            \"timestamp\": 1674507889,\n            \"counterparty\": \"EVE WILSON\",\n            \"type\": \"DEBIT\",\n            \"amount\": 150000,\n            \"status\": \"FAILED\",\n            \"description\": \"insufficient funds\",\n            \"line_number\": 7\n        },\n        {\n            \"timestamp\": 1674507891,\n            \"counterparty\": \"GRACE LEE\",\n            \"type\": \"DEBIT\",\n            \"amount\": 80000,\n            \"status\": \"PENDING\",\n            \"description\": \"awaiting approval\",\n            \"line_number\": 9\n        }\n    ],\n    \"page\": 1,\n    \"per_page\": 10,\n    \"total\": 4,\n    \"upload_id\": \"e7ecc88e-e280-421b-89a7-aa693294d7e5\"\n}"
+				},
+				{
+					"name": "pending transaction",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/transactions/issues?upload_id=e7ecc88e-e280-421b-89a7-aa693294d7e5&page=1&per_page=10&status=PENDING",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"transactions",
+								"issues"
+							],
+							"query": [
+								{
+									"key": "upload_id",
+									"value": "e7ecc88e-e280-421b-89a7-aa693294d7e5"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "per_page",
+									"value": "10"
+								},
+								{
+									"key": "status",
+									"value": "PENDING",
+									"description": "FAILED or PENDING"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Trace-Id",
+							"value": "ec36bd75-333a-4856-8de2-27e12ac62743"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 08 Jan 2026 04:33:18 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "401"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"items\": [\n        {\n            \"timestamp\": 1674507886,\n            \"counterparty\": \"ALICE WONDER\",\n            \"type\": \"CREDIT\",\n            \"amount\": 300000,\n            \"status\": \"PENDING\",\n            \"description\": \"pending payment\",\n            \"line_number\": 4\n        },\n        {\n            \"timestamp\": 1674507891,\n            \"counterparty\": \"GRACE LEE\",\n            \"type\": \"DEBIT\",\n            \"amount\": 80000,\n            \"status\": \"PENDING\",\n            \"description\": \"awaiting approval\",\n            \"line_number\": 9\n        }\n    ],\n    \"page\": 1,\n    \"per_page\": 10,\n    \"total\": 2,\n    \"upload_id\": \"e7ecc88e-e280-421b-89a7-aa693294d7e5\"\n}"
+				},
+				{
+					"name": "failed transaction",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/transactions/issues?upload_id=e7ecc88e-e280-421b-89a7-aa693294d7e5&page=1&per_page=10&status=FAILED",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"transactions",
+								"issues"
+							],
+							"query": [
+								{
+									"key": "upload_id",
+									"value": "e7ecc88e-e280-421b-89a7-aa693294d7e5"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "per_page",
+									"value": "10"
+								},
+								{
+									"key": "status",
+									"value": "FAILED",
+									"description": "FAILED or PENDING"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "X-Trace-Id",
+							"value": "a2c80ae9-c8de-48ee-bf10-b7c4e0b414ed"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 08 Jan 2026 04:33:35 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "402"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"items\": [\n        {\n            \"timestamp\": 1674507885,\n            \"counterparty\": \"BOB SMITH\",\n            \"type\": \"DEBIT\",\n            \"amount\": 100000,\n            \"status\": \"FAILED\",\n            \"description\": \"invalid transaction\",\n            \"line_number\": 3\n        },\n        {\n            \"timestamp\": 1674507889,\n            \"counterparty\": \"EVE WILSON\",\n            \"type\": \"DEBIT\",\n            \"amount\": 150000,\n            \"status\": \"FAILED\",\n            \"description\": \"insufficient funds\",\n            \"line_number\": 7\n        }\n    ],\n    \"page\": 1,\n    \"per_page\": 10,\n    \"total\": 2,\n    \"upload_id\": \"e7ecc88e-e280-421b-89a7-aa693294d7e5\"\n}"
+				}
+			]
+		}
+	]
+}

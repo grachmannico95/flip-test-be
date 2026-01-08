@@ -1,4 +1,4 @@
-# FLIP BE TEST
+# FLIP TEST BACKEND
 
 Go HTTP service for asynchronous CSV statement processing with event-driven architecture, worker pool, and clean architecture patterns.
 
@@ -126,12 +126,12 @@ make test-race
 ```
 
 ## Example CSV file
+[sample.csv](./test/file/sample.csv)
 
-```
-./test/file/sample.csv
-```
+## API Documentation
+[postman collection](./postman/flip-test-be.postman_collection.json)
 
-## cURL
+### cURL
 
 - POST /statements
   ```
