@@ -208,6 +208,15 @@ make test-race
   }
   ```
 
+  - PENDING transaction
+    ```
+    curl --location 'http://localhost:8080/transactions/issues?upload_id=a2a90ca1-548a-49b2-bd49-5eee399a6140&page=1&per_page=10&status=PENDING'
+    ```
+  - FAILED transaction
+    ```
+    curl --location 'http://localhost:8080/transactions/issues?upload_id=a2a90ca1-548a-49b2-bd49-5eee399a6140&page=1&per_page=10&status=FAILED'
+    ```
+
 ## Log example
 
 ```
